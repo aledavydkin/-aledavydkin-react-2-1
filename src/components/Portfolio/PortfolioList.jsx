@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 const uuid = require('uuid');
 
 function PortfolioList(props) {
@@ -7,14 +8,18 @@ function PortfolioList(props) {
     return (
         <div className="projectList"> {
             projects.map(item =>
-                <div className="project">
-                    <img src={item.img} key={uuid()} />
+                <div className="project" key={uuid()}>
+                    <img src={item.img} />
                 </div>
             )
         }
         </div>
     );
 }
+
+PortfolioList.propTypes = {
+    projects: PropTypes.array.isRequired,
+};
 
 export default PortfolioList;
 
